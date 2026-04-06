@@ -1,0 +1,97 @@
+mysql> alter table tbl_user add column user_tel varchar(30) null after user_name;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_user;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| user_id       | varchar(10)  | NO   | PRI | NULL    |       |
+| user_password | varchar(100) | NO   |     | NULL    |       |
+| user_name     | varchar(45)  | NO   |     | NULL    |       |
+| user_tel      | varchar(30)  | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table tbl_user drop user_password;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_user;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| user_id   | varchar(10) | NO   | PRI | NULL    |       |
+| user_name | varchar(45) | NO   |     | NULL    |       |
+| user_tel  | varchar(30) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table tbl_user change column user_tel user_phone varchar(100) not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_user;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| user_id    | varchar(10)  | NO   | PRI | NULL    |       |
+| user_name  | varchar(45)  | NO   |     | NULL    |       |
+| user_phone | varchar(100) | NO   |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table tbl_product add column amount int not null after prod_price;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_product;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| prod_id       | int           | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100)  | NO   |     | NULL    |       |
+| prod_category | varchar(10)   | YES  |     | NULL    |       |
+| prod_details  | varchar(1024) | YES  |     | NULL    |       |
+| reg_date      | datetime      | NO   |     | NULL    |       |
+| prod_price    | int           | NO   |     | NULL    |       |
+| amount        | int           | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table tbl_product change column prod_price prod_price varchar(100) null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_product;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| prod_id       | int           | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100)  | NO   |     | NULL    |       |
+| prod_category | varchar(10)   | YES  |     | NULL    |       |
+| prod_details  | varchar(1024) | YES  |     | NULL    |       |
+| reg_date      | datetime      | NO   |     | NULL    |       |
+| prod_price    | varchar(100)  | YES  |     | NULL    |       |
+| amount        | int           | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table tbl_product drop prod_details;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_product;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| prod_id       | int          | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100) | NO   |     | NULL    |       |
+| prod_category | varchar(10)  | YES  |     | NULL    |       |
+| reg_date      | datetime     | NO   |     | NULL    |       |
+| prod_price    | varchar(100) | YES  |     | NULL    |       |
+| amount        | int          | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql>
